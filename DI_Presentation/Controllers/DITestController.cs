@@ -39,8 +39,9 @@ namespace DI_Presentation.Controllers
                     break;
 
             }
-
-            Console.WriteLine($"Entrada da controller, o valor é {_value?.ActualValue}");
+            Console.Clear();
+            Console.WriteLine($"O tipo do container é {type}");
+            Console.WriteLine($"Entrada da controller, o valor é {_value.ActualValue ?? "nulo" }");
             _value ??= new Value() { ActualValue = "controller" };
             var value = new Value() { ActualValue = "controller" };
             _value.ActualValue = value.ActualValue;
