@@ -36,7 +36,7 @@ namespace Service
                     break;
 
             }
-            Console.WriteLine($"Entrada da service, o valor é {_value?.ActualValue}");
+            Console.WriteLine($"Entrada da service, o valor é {_value.ActualValue ?? "nulo" }");
             _value ??= new Value() { ActualValue = "service" };
             value.ActualValue = "Service";
             _value.ActualValue = value.ActualValue;

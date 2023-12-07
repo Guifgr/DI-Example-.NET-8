@@ -33,7 +33,7 @@ namespace Repository
                     break;
 
             }
-            Console.WriteLine($"Entrada da repository, o valor é {_value?.ActualValue}");
+            Console.WriteLine($"Entrada da repository, o valor é {_value.ActualValue ?? "nulo"}");
             _value ??= new Value() { ActualValue = "repository" };
             value.ActualValue = "repository";
             _value.ActualValue = value.ActualValue;
