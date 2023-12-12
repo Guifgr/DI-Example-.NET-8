@@ -1,6 +1,7 @@
 using Domain.Models;
 using Repository;
 using Service;
+using Service.Operation;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,19 +18,17 @@ builder.Services.AddControllers()
 builder.Services
     .AddScoped<IRepositoryClass, RepositoryClass>()
     .AddScoped<IServiceClass, ServiceClass>()
-
-    //.AddTransient<IRepositoryClass, RepositoryClass>()
-    //.AddTransient<IServiceClass, ServiceClass>()
-
-    //.AddSingleton<IRepositoryClass, RepositoryClass>()
-    //.AddSingleton<IServiceClass, ServiceClass>()
-
+    
     .AddSingleton<ValueSingleton>()
     .AddScoped<ValueScoped>()
     .AddTransient<ValueTransient>()
+
+    .AddTransient<IOperationTransient, OperationClass>()
+    .AddScoped<IOperationScoped, OperationClass>()
+    .AddSingleton<IOperationSingleton, OperationClass>()
+
     .AddEndpointsApiExplorer()
-    .AddSwaggerGen()
-    ;
+    .AddSwaggerGen();
 
 var app = builder.Build();
 
