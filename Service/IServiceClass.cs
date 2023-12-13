@@ -5,6 +5,6 @@ namespace Service
 {
     public interface IServiceClass
     {
-        Value SericeMethod(Value value, LifeCycleTypeEnum type);
+        Value ServiceMethod(Value value, LifeCycleTypeEnum type);
     }
 }

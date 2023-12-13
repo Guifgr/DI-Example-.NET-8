@@ -81,13 +81,13 @@ namespace DI_Presentation.Controllers
 
             }
             Console.Clear();
-            Console.WriteLine($"O tipo do container � {type}");
-            Console.WriteLine($"Entrada da controller, o valor � {_value.ActualValue ?? "nulo" }");
+            Console.WriteLine($"O tipo do container é {type}");
+            Console.WriteLine($"Entrada da controller, o valor é {_value.ActualValue ?? "nulo" }");
             _value ??= new Value() { ActualValue = "controller" };
             var value = new Value() { ActualValue = "controller" };
             _value.ActualValue = value.ActualValue;
-            Console.WriteLine($"Sa�da da controller, o valor � {_value?.ActualValue}\n");
-            return _serviceClass.SericeMethod(value, type);
+            Console.WriteLine($"Saída da controller, o valor é {_value?.ActualValue}\n");
+            return _serviceClass.ServiceMethod(value, type);
         }
     }
 }

@@ -20,22 +20,16 @@ namespace Service
 
         }
 
-        public Value SericeMethod(Value value, LifeCycleTypeEnum type)
+        public Value ServiceMethod(Value value, LifeCycleTypeEnum type)
         {
-            var _value = new Value();
-            switch (type)
+            Value _value = type switch
             {
-                case LifeCycleTypeEnum.Transient:
-                    _value = _valueTransient;
-                    break;
-                case LifeCycleTypeEnum.Scoped:
-                    _value = _valueScoped;
-                    break;
-                case LifeCycleTypeEnum.Singleton:
-                    _value = _valueSingleton;
-                    break;
+                LifeCycleTypeEnum.Transient => _valueTransient,
+                LifeCycleTypeEnum.Scoped => _valueScoped,
+                LifeCycleTypeEnum.Singleton => _valueSingleton,
+                _ => throw new NotImplementedException()
+            };
 
-            }
             Console.WriteLine($"Entrada da service, o valor é {_value.ActualValue ?? "nulo" }");
             _value ??= new Value() { ActualValue = "service" };
             value.ActualValue = "Service";
